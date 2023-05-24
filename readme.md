@@ -11,7 +11,7 @@
 ./mysqldump -u root -p theater > ~/Desktop/Theater/dump_theater.sql
 ```
 
-# Restauration 
+## Restauration 
 
 1. Ouvrez votre terminal et allez dans le dossier où est stocké votre code 
  
