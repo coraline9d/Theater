@@ -23,10 +23,10 @@ DROP TABLE IF EXISTS `admins`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `admins` (
-  `id_admins` char(36) NOT NULL,
+  `id` char(36) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `admins_password` varchar(60) NOT NULL,
-  PRIMARY KEY (`id_admins`)
+  `password` varchar(60) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -36,7 +36,7 @@ CREATE TABLE `admins` (
 
 LOCK TABLES `admins` WRITE;
 /*!40000 ALTER TABLE `admins` DISABLE KEYS */;
-INSERT INTO `admins` VALUES ('58f9eb0a-c742-11ed-81af-d3284c073c1a','choyer0@facebook.com','$2y$10$Uh38.Z6VwzcoATDQvLBrBevYrEXX3aRz/Ta9vAaS/lnMyPj0Et3ri'),('58f9f97e-c742-11ed-81af-d3284c073c1a','spenhall1@netlog.com','$2y$10$cCXnEYzk4O1K/iK896fCO.lsxS18.Qc2GlYsZK1W68mvpjQXOLp/u'),('58fa03ce-c742-11ed-81af-d3284c073c1a','fscruton2@about.com','$2y$10$WldmBh0chrIbs7yMItwNneW82jogNd0ULCTKN3k.W5c.nR8JjSKBW'),('58fa0e00-c742-11ed-81af-d3284c073c1a','kpapierz3@blogs.com','$2y$10$I/FTiBhGwgAtGKLN2wz7sOIOX.lgVi3w3wS.lLNmIZPVE/tvszR1K');
+INSERT INTO `admins` VALUES ('62f1f85c-0485-11ee-add8-928a0162e96c','choyer0@facebook.com','$2y$10$Uh38.Z6VwzcoATDQvLBrBevYrEXX3aRz/Ta9vAaS/lnMyPj0Et3ri'),('62f20b80-0485-11ee-add8-928a0162e96c','spenhall1@netlog.com','$2y$10$cCXnEYzk4O1K/iK896fCO.lsxS18.Qc2GlYsZK1W68mvpjQXOLp/u'),('62f21ddc-0485-11ee-add8-928a0162e96c','fscruton2@about.com','$2y$10$WldmBh0chrIbs7yMItwNneW82jogNd0ULCTKN3k.W5c.nR8JjSKBW'),('62f22ea8-0485-11ee-add8-928a0162e96c','kpapierz3@blogs.com','$2y$10$I/FTiBhGwgAtGKLN2wz7sOIOX.lgVi3w3wS.lLNmIZPVE/tvszR1K');
 /*!40000 ALTER TABLE `admins` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -52,8 +52,8 @@ CREATE TABLE `admins_complexes` (
   `id_complexes` char(36) NOT NULL,
   KEY `id_admins` (`id_admins`),
   KEY `id_complexes` (`id_complexes`),
-  CONSTRAINT `admins_complexes_ibfk_1` FOREIGN KEY (`id_admins`) REFERENCES `admins` (`id_admins`),
-  CONSTRAINT `admins_complexes_ibfk_2` FOREIGN KEY (`id_complexes`) REFERENCES `complexes` (`id_complexes`)
+  CONSTRAINT `admins_complexes_ibfk_1` FOREIGN KEY (`id_admins`) REFERENCES `admins` (`id`),
+  CONSTRAINT `admins_complexes_ibfk_2` FOREIGN KEY (`id_complexes`) REFERENCES `complexes` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -63,6 +63,7 @@ CREATE TABLE `admins_complexes` (
 
 LOCK TABLES `admins_complexes` WRITE;
 /*!40000 ALTER TABLE `admins_complexes` DISABLE KEYS */;
+INSERT INTO `admins_complexes` VALUES ('62f1f85c-0485-11ee-add8-928a0162e96c','62f1a49c-0485-11ee-add8-928a0162e96c'),('62f20b80-0485-11ee-add8-928a0162e96c','62f1b66c-0485-11ee-add8-928a0162e96c');
 /*!40000 ALTER TABLE `admins_complexes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -74,10 +75,10 @@ DROP TABLE IF EXISTS `complexes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `complexes` (
-  `id_complexes` char(36) NOT NULL,
+  `id` char(36) NOT NULL,
   `name` varchar(50) NOT NULL,
   `address` varchar(50) NOT NULL,
-  PRIMARY KEY (`id_complexes`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -87,7 +88,7 @@ CREATE TABLE `complexes` (
 
 LOCK TABLES `complexes` WRITE;
 /*!40000 ALTER TABLE `complexes` DISABLE KEYS */;
-INSERT INTO `complexes` VALUES ('58f9a834-c742-11ed-81af-d3284c073c1a','Thoughtbridge','24593 Tomscot Road'),('58f9b7a2-c742-11ed-81af-d3284c073c1a','Pixope','801 Scofield Way'),('58f9c274-c742-11ed-81af-d3284c073c1a','Dazzlesphere','27792 Maywood Road'),('58f9cf80-c742-11ed-81af-d3284c073c1a','Quire','68252 Esker Plaza');
+INSERT INTO `complexes` VALUES ('62f1a49c-0485-11ee-add8-928a0162e96c','Thoughtbridge','24593 Tomscot Road'),('62f1b66c-0485-11ee-add8-928a0162e96c','Pixope','801 Scofield Way'),('62f1c792-0485-11ee-add8-928a0162e96c','Dazzlesphere','27792 Maywood Road'),('62f1d7b4-0485-11ee-add8-928a0162e96c','Quire','68252 Esker Plaza');
 /*!40000 ALTER TABLE `complexes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -99,10 +100,10 @@ DROP TABLE IF EXISTS `movie`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `movie` (
-  `id_movie` char(36) NOT NULL,
+  `id` char(36) NOT NULL,
   `title` varchar(50) NOT NULL,
   `synopsis` text NOT NULL,
-  PRIMARY KEY (`id_movie`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -112,7 +113,7 @@ CREATE TABLE `movie` (
 
 LOCK TABLES `movie` WRITE;
 /*!40000 ALTER TABLE `movie` DISABLE KEYS */;
-INSERT INTO `movie` VALUES ('58fa2610-c742-11ed-81af-d3284c073c1a','Good Lawyer\'s Wife, A (Baramnan gajok)','Cysto & recto w grf/pros'),('58fa30d8-c742-11ed-81af-d3284c073c1a','Tadpole','Bact smear-eye'),('58fa3e02-c742-11ed-81af-d3284c073c1a','Pericles on 31st Street','Parathyroid biopsy'),('58fa4b04-c742-11ed-81af-d3284c073c1a','Great Race, The','Wound catheter irrigat'),('58fa566c-c742-11ed-81af-d3284c073c1a','Kedma','Close reduc-femur epiphy');
+INSERT INTO `movie` VALUES ('62f254c8-0485-11ee-add8-928a0162e96c','Good Lawyer\'s Wife, A (Baramnan gajok)','Cysto & recto w grf/pros'),('62f2672e-0485-11ee-add8-928a0162e96c','Tadpole','Bact smear-eye'),('62f2785e-0485-11ee-add8-928a0162e96c','Pericles on 31st Street','Parathyroid biopsy'),('62f287ea-0485-11ee-add8-928a0162e96c','Great Race, The','Wound catheter irrigat'),('62f2973a-0485-11ee-add8-928a0162e96c','Kedma','Close reduc-femur epiphy');
 /*!40000 ALTER TABLE `movie` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -124,13 +125,13 @@ DROP TABLE IF EXISTS `movie_theater`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `movie_theater` (
-  `id_movie_theater` char(36) NOT NULL,
+  `id` char(36) NOT NULL,
   `number_of_the_movie_room` int(11) NOT NULL,
   `number_of_seat` int(11) NOT NULL,
   `id_movie` char(36) NOT NULL,
-  PRIMARY KEY (`id_movie_theater`),
+  PRIMARY KEY (`id`),
   KEY `id_movie` (`id_movie`),
-  CONSTRAINT `movie_theater_ibfk_1` FOREIGN KEY (`id_movie`) REFERENCES `movie` (`id_movie`)
+  CONSTRAINT `movie_theater_ibfk_1` FOREIGN KEY (`id_movie`) REFERENCES `movie` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -140,6 +141,7 @@ CREATE TABLE `movie_theater` (
 
 LOCK TABLES `movie_theater` WRITE;
 /*!40000 ALTER TABLE `movie_theater` DISABLE KEYS */;
+INSERT INTO `movie_theater` VALUES ('62f2bd32-0485-11ee-add8-928a0162e96c',8,100,'62f254c8-0485-11ee-add8-928a0162e96c'),('62f2d2ea-0485-11ee-add8-928a0162e96c',7,200,'62f2672e-0485-11ee-add8-928a0162e96c'),('62f2e80c-0485-11ee-add8-928a0162e96c',9,230,'62f2785e-0485-11ee-add8-928a0162e96c'),('62f31156-0485-11ee-add8-928a0162e96c',3,250,'62f2973a-0485-11ee-add8-928a0162e96c');
 /*!40000 ALTER TABLE `movie_theater` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -151,10 +153,10 @@ DROP TABLE IF EXISTS `rate`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `rate` (
-  `id_rate` char(36) NOT NULL,
+  `id` char(36) NOT NULL,
   `category` varchar(50) NOT NULL,
   `price` float NOT NULL,
-  PRIMARY KEY (`id_rate`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -164,7 +166,7 @@ CREATE TABLE `rate` (
 
 LOCK TABLES `rate` WRITE;
 /*!40000 ALTER TABLE `rate` DISABLE KEYS */;
-INSERT INTO `rate` VALUES ('58f918b0-c742-11ed-81af-d3284c073c1a','Plein Tarif',9.2),('58f926ac-c742-11ed-81af-d3284c073c1a','Étudiant',7.6),('58f93174-c742-11ed-81af-d3284c073c1a','Moins de 14 ans',5.9);
+INSERT INTO `rate` VALUES ('62f10082-0485-11ee-add8-928a0162e96c','Plein Tarif',9.2),('62f11504-0485-11ee-add8-928a0162e96c','Étudiant',7.6),('62f1277e-0485-11ee-add8-928a0162e96c','Moins de 14 ans',5.9);
 /*!40000 ALTER TABLE `rate` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -176,11 +178,11 @@ DROP TABLE IF EXISTS `reservation`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `reservation` (
-  `id_reservation` char(36) NOT NULL,
+  `id` char(36) NOT NULL,
   `number_of_seat` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-  PRIMARY KEY (`id_reservation`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -190,6 +192,7 @@ CREATE TABLE `reservation` (
 
 LOCK TABLES `reservation` WRITE;
 /*!40000 ALTER TABLE `reservation` DISABLE KEYS */;
+INSERT INTO `reservation` VALUES ('62f335dc-0485-11ee-add8-928a0162e96c',1,'Josiah Torn','jtorn0@youtu.be'),('62f3503a-0485-11ee-add8-928a0162e96c',2,'Adrian Leishman','aleishman1@hud.gov'),('62f36b42-0485-11ee-add8-928a0162e96c',3,'Lyle Beak','lbeak2@comcast.net'),('62f383ac-0485-11ee-add8-928a0162e96c',4,'Kiley Cubbin','kcubbin3@blog.com'),('62f396c6-0485-11ee-add8-928a0162e96c',5,'Thorndike Hollidge','thollidge4@a8.net');
 /*!40000 ALTER TABLE `reservation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -201,22 +204,22 @@ DROP TABLE IF EXISTS `session`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `session` (
-  `id_session` char(36) NOT NULL,
+  `id` char(36) NOT NULL,
   `day` date NOT NULL,
   `schedule` time NOT NULL,
   `id_users` char(36) NOT NULL,
   `id_complexes` char(36) NOT NULL,
   `id_rate` char(36) NOT NULL,
   `id_reservation` char(36) NOT NULL,
-  PRIMARY KEY (`id_session`),
+  PRIMARY KEY (`id`),
   KEY `id_users` (`id_users`),
   KEY `id_complexes` (`id_complexes`),
   KEY `id_rate` (`id_rate`),
   KEY `id_reservation` (`id_reservation`),
-  CONSTRAINT `session_ibfk_1` FOREIGN KEY (`id_users`) REFERENCES `users` (`id_users`),
-  CONSTRAINT `session_ibfk_2` FOREIGN KEY (`id_complexes`) REFERENCES `complexes` (`id_complexes`),
-  CONSTRAINT `session_ibfk_3` FOREIGN KEY (`id_rate`) REFERENCES `rate` (`id_rate`),
-  CONSTRAINT `session_ibfk_4` FOREIGN KEY (`id_reservation`) REFERENCES `reservation` (`id_reservation`)
+  CONSTRAINT `session_ibfk_1` FOREIGN KEY (`id_users`) REFERENCES `users` (`id`),
+  CONSTRAINT `session_ibfk_2` FOREIGN KEY (`id_complexes`) REFERENCES `complexes` (`id`),
+  CONSTRAINT `session_ibfk_3` FOREIGN KEY (`id_rate`) REFERENCES `rate` (`id`),
+  CONSTRAINT `session_ibfk_4` FOREIGN KEY (`id_reservation`) REFERENCES `reservation` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -226,6 +229,7 @@ CREATE TABLE `session` (
 
 LOCK TABLES `session` WRITE;
 /*!40000 ALTER TABLE `session` DISABLE KEYS */;
+INSERT INTO `session` VALUES ('62f3b99e-0485-11ee-add8-928a0162e96c','2023-02-27','09:15:00','62f14aa6-0485-11ee-add8-928a0162e96c','62f1a49c-0485-11ee-add8-928a0162e96c','62f10082-0485-11ee-add8-928a0162e96c','62f335dc-0485-11ee-add8-928a0162e96c'),('62f3d5fa-0485-11ee-add8-928a0162e96c','2023-02-23','09:20:00','62f15bea-0485-11ee-add8-928a0162e96c','62f1b66c-0485-11ee-add8-928a0162e96c','62f11504-0485-11ee-add8-928a0162e96c','62f3503a-0485-11ee-add8-928a0162e96c'),('62f3ed60-0485-11ee-add8-928a0162e96c','2023-02-24','09:25:00','62f16d6a-0485-11ee-add8-928a0162e96c','62f1c792-0485-11ee-add8-928a0162e96c','62f1277e-0485-11ee-add8-928a0162e96c','62f36b42-0485-11ee-add8-928a0162e96c');
 /*!40000 ALTER TABLE `session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -241,8 +245,8 @@ CREATE TABLE `session_movie_theater` (
   `id_movie_theater` char(36) NOT NULL,
   KEY `id_session` (`id_session`),
   KEY `id_movie_theater` (`id_movie_theater`),
-  CONSTRAINT `session_movie_theater_ibfk_1` FOREIGN KEY (`id_session`) REFERENCES `session` (`id_session`),
-  CONSTRAINT `session_movie_theater_ibfk_2` FOREIGN KEY (`id_movie_theater`) REFERENCES `movie_theater` (`id_movie_theater`)
+  CONSTRAINT `session_movie_theater_ibfk_1` FOREIGN KEY (`id_session`) REFERENCES `session` (`id`),
+  CONSTRAINT `session_movie_theater_ibfk_2` FOREIGN KEY (`id_movie_theater`) REFERENCES `movie_theater` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -252,6 +256,7 @@ CREATE TABLE `session_movie_theater` (
 
 LOCK TABLES `session_movie_theater` WRITE;
 /*!40000 ALTER TABLE `session_movie_theater` DISABLE KEYS */;
+INSERT INTO `session_movie_theater` VALUES ('62f3b99e-0485-11ee-add8-928a0162e96c','62f2bd32-0485-11ee-add8-928a0162e96c'),('62f3d5fa-0485-11ee-add8-928a0162e96c','62f2d2ea-0485-11ee-add8-928a0162e96c');
 /*!40000 ALTER TABLE `session_movie_theater` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -263,10 +268,10 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
-  `id_users` char(36) NOT NULL,
+  `id` char(36) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `users_password` varchar(60) NOT NULL,
-  PRIMARY KEY (`id_users`)
+  `password` varchar(60) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -276,7 +281,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('58f95b90-c742-11ed-81af-d3284c073c1a','gissard0@harvard.edu','$2y$10$42E.edBFNa5DnF1Jo4PFAekXP/awVNYDwE5.h219m2I7Ud8QrJjkq'),('58f9678e-c742-11ed-81af-d3284c073c1a','ncrumb1@wisc.edu','$2y$10$30Lu8NBepzLRwBAbYDX20edv1zuXMgeDrDLcEXxLIqaNDbu.Tf8Iu'),('58f97ac6-c742-11ed-81af-d3284c073c1a','cromanin2@nature.com','$2y$10$bY.iyLaTtuMQTZOxkL9tEuLX8UCiUssQpSZXYLafEXUwqXgoWYzyO'),('58f98566-c742-11ed-81af-d3284c073c1a','fcumberpatch3@themeforest.net','$2y$10$dqkdCUuDxsdoMFOA3VoPKO6J8ekGeUFMo3r3/49mA0rO3jDGFWIsW');
+INSERT INTO `users` VALUES ('62f14aa6-0485-11ee-add8-928a0162e96c','gissard0@harvard.edu','$2y$10$42E.edBFNa5DnF1Jo4PFAekXP/awVNYDwE5.h219m2I7Ud8QrJjkq'),('62f15bea-0485-11ee-add8-928a0162e96c','ncrumb1@wisc.edu','$2y$10$30Lu8NBepzLRwBAbYDX20edv1zuXMgeDrDLcEXxLIqaNDbu.Tf8Iu'),('62f16d6a-0485-11ee-add8-928a0162e96c','cromanin2@nature.com','$2y$10$bY.iyLaTtuMQTZOxkL9tEuLX8UCiUssQpSZXYLafEXUwqXgoWYzyO'),('62f18070-0485-11ee-add8-928a0162e96c','fcumberpatch3@themeforest.net','$2y$10$dqkdCUuDxsdoMFOA3VoPKO6J8ekGeUFMo3r3/49mA0rO3jDGFWIsW');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -289,4 +294,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-20 18:21:24
+-- Dump completed on 2023-06-06 18:17:38
